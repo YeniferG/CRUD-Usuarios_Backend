@@ -19,8 +19,13 @@ public class UserService {
         return (ArrayList<UserModel>) userRepository.findAll();
     }
 
-    public UserModel saveUsers(UserModel user) {
-        return userRepository.save(user);
+    public String saveUsers(UserModel user) {
+        try {
+            userRepository.save(user);
+            return "Usuario guardado exitosamente";
+        } catch (Exception e) {
+            return "No fue posible realizar el guardado del usuario";
+        }
     }
 
     public Optional<UserModel> getUsersById(Long id) {
@@ -29,6 +34,10 @@ public class UserService {
 
     public ArrayList<UserModel> getUsersByPriority(Integer priority) {
         return userRepository.findByPrioridad(priority);
+    }
+
+    public Optional<UserModel> getByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public boolean deleteUser(Long id) {

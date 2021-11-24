@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public UserModel saveUsers(@RequestBody UserModel user) {
+    public String saveUsers(@RequestBody UserModel user) {
         return this.userService.saveUsers(user);
     }
 
@@ -41,6 +41,11 @@ public class UserController {
     @GetMapping("/query")
     public ArrayList<UserModel> getUsersByPriority(@RequestParam("priority") Integer priority) {
         return this.userService.getUsersByPriority(priority);
+    }
+
+    @GetMapping("/{email}")
+    public Optional<UserModel> getByEmail(@RequestParam("email") String email) {
+        return this.userService.getByEmail(email);
     }
 
     @DeleteMapping(path = "/{id}")
