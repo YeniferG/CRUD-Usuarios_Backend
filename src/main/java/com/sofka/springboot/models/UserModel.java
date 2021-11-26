@@ -2,8 +2,9 @@ package com.sofka.springboot.models;
 
 import javax.persistence.*;
 
+//En esta clase se encuentran las entidades alojadas en la BBDD y con la que se va a realizar el flujo
 @Entity
-@Table(name = "usuario")
+@Table(name = "user")
 public class UserModel {
 
     @Id

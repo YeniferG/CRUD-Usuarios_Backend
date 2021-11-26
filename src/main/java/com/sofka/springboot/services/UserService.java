@@ -9,6 +9,7 @@ import com.sofka.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//En esta clase se ejecuta la logica de la aplicación
 @Service
 public class UserService {
 
@@ -28,15 +29,15 @@ public class UserService {
         }
     }
 
-    public Optional<UserModel> getUsersById(Long id) {
+    public Optional<UserModel> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
     public ArrayList<UserModel> getUsersByPriority(Integer priority) {
-        return userRepository.findByPrioridad(priority);
+        return userRepository.findByPriority(priority);
     }
 
-    public Optional<UserModel> getByEmail(String email) {
+    public ArrayList<UserModel> getByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
